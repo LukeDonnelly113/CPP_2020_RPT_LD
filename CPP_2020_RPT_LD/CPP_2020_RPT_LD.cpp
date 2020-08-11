@@ -2,6 +2,18 @@
 //
 
 #include <iostream>
+#include <list>
+#include <vector>
+#include<functional>
+#include "user.h"
+#include "post.h"
+#include <map>
+#include <fstream>
+#include <string>
+#include <iomanip>
+#include <algorithm>
+
+using namespace std;
 
 int main()
 {
