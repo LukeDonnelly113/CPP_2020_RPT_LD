@@ -30,3 +30,12 @@ public:
 	void setTaggedUsers(string TaggedUsers);
 
 	void print();
+
+	friend ostream& operator<<(ostream& os, const post* post);
+	friend istream& operator>>(istream& is, post* post);
+	post& operator=(const post& post);
+	friend bool operator==(const post& post1, const post& post2);
+	friend bool operator!=(const post& post1, const post& post2);
+
+	~post();
+};
