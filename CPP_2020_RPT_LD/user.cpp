@@ -110,7 +110,7 @@ bool operator !=(const user& User1, const user& User2)
 		return false;
 }
 
-Sale::~Sale()
+user::~user()
 {
 
 }
