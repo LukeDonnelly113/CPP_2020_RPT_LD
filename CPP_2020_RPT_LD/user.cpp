@@ -87,3 +87,30 @@ user& user::operator=(const user& User)
 		return *this;
 	}
 }
+bool operator ==(const user& User1, const user& User2)
+{
+	if ((User1.getemail() == User2.getemail()) &&
+		(User1.getpassword() == User1.getpassword()) &&
+		(User1.getuserName() == User1.getuserName()) &&
+		(User1.getlastLogin() == User1.getlastLogin()))
+
+		return true;
+	else
+		return false;
+}
+bool operator !=(const user& User1, const user& User2)
+{
+	if ((User1.getemail() != User2.getemail()) ||
+		(User1.getpassword() != User1.getpassword()) ||
+		(User1.getuserName() != User1.getuserName()) ||
+		(User1.getlastLogin() != User1.getlastLogin()))
+
+		return true;
+	else
+		return false;
+}
+
+Sale::~Sale()
+{
+
+}
