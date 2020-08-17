@@ -98,3 +98,47 @@ istream& operator>>(istream& is, post* Post)
 	is >> Post->poster >> Post->DateTime >> Post->message >> Post->tags >> Post->TaggedUsers;
 	return is;
 }
+post& post::operator=(const post& Post)
+{
+	if (this == &Post)
+	{
+		return *this;
+	}
+	else
+	{
+		poster = Post.getposter();
+		DateTime = Post.getDateTime();
+		message = Post.getmessage();
+		tags = Post.gettags();
+		TaggedUsers = Post.getTaggedUsers();
+		return *this;
+	}
+}
+bool operator ==(const post& Post1, const post& Post2)
+{
+	if ((Post1.getposter() == Post2.getposter()) &&
+		(Post1.getDateTime() == Post2.getDateTime()) &&
+		(Post1.getmessage() == Post2.getmessage()) &&
+		(Post1.gettags() == Post2.gettags()) &&
+		(Post1.getTaggedUsers() == Post2.getTaggedUsers()))
+		return true;
+	else
+		return false;
+}
+bool operator !=(const post& Post1, const post& Post2)
+{
+	if ((Post1.getposter() != Post2.getposter()) ||
+		(Post1.getDateTime() != Post2.getDateTime()) ||
+		(Post1.getmessage() != Post2.getmessage()) ||
+		(Post1.gettags() != Post2.gettags()) ||
+		(Post1.getTaggedUsers() != Post2.getTaggedUsers()))
+		return true;
+	else
+		return false;
+}
+
+
+post::~post()
+{
+
+}
