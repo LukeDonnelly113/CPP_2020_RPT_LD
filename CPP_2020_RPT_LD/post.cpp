@@ -13,3 +13,76 @@ post::post(string poster, time_t DateTime, string message, string tags, string T
 	settags(tags);
 	setTaggedUsers(TaggedUsers);
 }
+post::post(const post& other)
+{
+	poster = other.poster;
+	DateTime = other.DateTime;
+	message = other.message;
+	tags = other.tags;
+	TaggedUsers = other.TaggedUsers;
+}
+
+string post::getposter()const
+{
+	return poster;
+}
+void post::setposter(string poster)
+{
+	if (poster.length() >= 4)
+	{
+		this->poster = poster;
+	}
+}
+
+time_t post::getDateTime()const
+{
+	return DateTime;
+}
+void post::setDateTime(time_t DateTime)
+{
+	if (DateTime > 00.00)
+	{
+		this->DateTime = DateTime;
+	}
+}
+
+string post::getmessage()const
+{
+	return message;
+}
+void post::setmessage(string message)
+{
+	if (message.length() >= 4)
+	{
+		this->message = message;
+	}
+}
+
+string post::gettags()const
+{
+	return tags;
+}
+void post::settags(string tags)
+{
+	if (tags.length() >= 4)
+	{
+		this->tags = tags;
+	}
+}
+
+string post::getTaggedUsers()const
+{
+	return TaggedUsers;
+}
+void post::setTaggedUsers(string TaggedUsers)
+{
+	if (TaggedUsers.length() >= 4)
+	{
+		this->TaggedUsers = TaggedUsers;
+	}
+}
+
+void post::print()
+{
+	cout << "Post(poster: " << poster << ", DateTime: " << DateTime << ", message: " << message << ", tags: " << tags << ", TaggedUsers: " << TaggedUsers <<  ")" << endl;
+}
