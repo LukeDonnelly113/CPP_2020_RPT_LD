@@ -86,3 +86,15 @@ void post::print()
 {
 	cout << "Post(poster: " << poster << ", DateTime: " << DateTime << ", message: " << message << ", tags: " << tags << ", TaggedUsers: " << TaggedUsers <<  ")" << endl;
 }
+
+//overloaded operators
+ostream& operator<<(ostream& os, const post* Post)
+{
+	os << "Post(poster: " << Post->poster << ", DateTime: " << Post->DateTime << ", message: " << Post->message << ", tags: " << Post->tags << ", TaggedUsers: " << Post->TaggedUsers << ")" << endl;
+	return os;
+}
+istream& operator>>(istream& is, post* Post)
+{
+	is >> Post->poster >> Post->DateTime >> Post->message >> Post->tags >> Post->TaggedUsers;
+	return is;
+}
