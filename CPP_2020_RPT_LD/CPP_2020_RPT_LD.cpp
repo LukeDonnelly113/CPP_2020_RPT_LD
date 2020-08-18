@@ -15,9 +15,18 @@
 
 using namespace std;
 
-int main()
+list <post*> findPostByUser(string poster, vector<post*>& currentPoster)
 {
-    std::cout << "Hello World!\n";
+	list <post*> items;
+	for (int i = 0; i < currentPoster.size(); i++)
+	{
+		post* item = currentPoster[i];
+		if (item->getposter() == poster)
+		{
+			items.push_back(item);
+		}
+	}
+	return items;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
