@@ -29,6 +29,20 @@ list <post*> findPostByUser(string poster, vector<post*>& currentPoster)
 	return items;
 }
 
+list <post*> findPostByTag(string tags, vector<post*>& currentTags)
+{
+	list <post*> items;
+	for (int i = 0; i < currentTags.size(); i++)
+	{
+		post* item = currentTags[i];
+		if (item->gettags() == tags)
+		{
+			items.push_back(item);
+		}
+	}
+	return items;
+}
+
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
