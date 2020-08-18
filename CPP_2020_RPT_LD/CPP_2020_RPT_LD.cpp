@@ -43,6 +43,12 @@ list <post*> findPostByTag(string tags, vector<post*>& currentTags)
 	return items;
 }
 
+void addPost(vector<post*>& currentPost, const post& postItem)
+{
+	post* npost = new post(postItem);
+	currentPost.push_back(npost);
+}
+
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
