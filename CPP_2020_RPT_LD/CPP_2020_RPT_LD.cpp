@@ -81,6 +81,55 @@ void option1(vector<post*>& currentPost)
 	cout << ("***********************************************************************************") << endl;
 }
 
+void option2(vector<post*>& currentPost)
+{
+	cout << ("***********************************************************************************") << endl;
+	cout << "Searching for a post: " << endl;
+	int choice;
+	do
+	{
+		cout << endl << "Enter 1 to search a post by User," << endl;
+		cout << "Enter 2 to search a post by tag," << endl;
+		cout << "Enter -1 to exit!" << endl;
+		cin >> choice;
+
+		if (choice != -1)
+		{
+			if (choice == 1)
+			{
+				string poster;
+				cout << "Enter the name of the user to find the post: ";
+				cin >> poster;
+				list <post*> items = findPostByUser(poster, currentPost);
+				for (list<post*>::iterator it = items.begin(); it != items.end(); ++it)
+				{
+					post* npost = *it;
+					npost->print();
+					cout << endl;
+				}
+			}
+
+			else if (choice == 2)
+			{
+				string tags;
+				cout << "Enter the tags of the post you want to find: ";
+				cin >> tags;
+				list <post*> items = findPostByUser(tags, currentPost);
+				for (list<post*>::iterator it = items.begin(); it != items.end(); ++it)
+				{
+					post* npost = *it;
+					npost->print();
+					cout << endl;
+				}
+			}
+
+			
+		}
+
+	} while (choice != -1);
+
+	cout << ("***********************************************************************************") << endl;
+}
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
