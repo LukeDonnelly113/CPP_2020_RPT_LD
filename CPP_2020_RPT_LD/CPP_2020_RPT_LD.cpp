@@ -49,6 +49,38 @@ void addPost(vector<post*>& currentPost, const post& postItem)
 	currentPost.push_back(npost);
 }
 
+
+
+
+
+void option1(vector<post*>& currentPost)
+{
+	cout << ("***********************************************************************************") << endl;
+	cout << "Adding a new post: " << endl;
+	string poster;
+	time_t DateTime;
+	string message;
+	string tags;
+	string TaggedUsers;
+
+	cout << "Poster: ";
+	cin >> poster;
+	cout << "DateTime: ";
+	cin >> DateTime;
+	cout << "Message: ";
+	cin >> message;
+	cout << "Tags: ";
+	cin >> tags;
+	cout << "TaggedUsers: ";
+	cin >> TaggedUsers;
+
+	post npost(poster, DateTime, message, tags, TaggedUsers);
+
+	addPost(currentPost, npost);
+
+	cout << ("***********************************************************************************") << endl;
+}
+
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
