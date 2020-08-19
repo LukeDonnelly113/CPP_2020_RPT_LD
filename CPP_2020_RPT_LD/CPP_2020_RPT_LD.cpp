@@ -156,6 +156,19 @@ void option3(vector<post*>& currentPost)
 	cout << ("***********************************************************************************") << endl;
 }
 
+//view option
+void option4(vector<post*>& currentPost)
+{
+	cout << ("***********************************************************************************") << endl;
+	cout << ("Current post:") << endl;
+	for (int i = 0; i < currentPost.size(); i++)
+	{
+		post* item = currentPost.at(i);
+		item->print();
+	}
+	cout << ("***********************************************************************************") << endl;
+}
+
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
