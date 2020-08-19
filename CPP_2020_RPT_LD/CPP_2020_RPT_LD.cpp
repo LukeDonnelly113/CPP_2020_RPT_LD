@@ -15,12 +15,12 @@
 
 using namespace std;
 
-list <post*> findPostByUser(string poster, vector<post*>& currentPoster)
+list <post*> findPostByUser(string poster, vector<post*>& currentPost)
 {
 	list <post*> items;
-	for (int i = 0; i < currentPoster.size(); i++)
+	for (int i = 0; i < currentPost.size(); i++)
 	{
-		post* item = currentPoster[i];
+		post* item = currentPost[i];
 		if (item->getposter() == poster)
 		{
 			items.push_back(item);
@@ -130,6 +130,32 @@ void option2(vector<post*>& currentPost)
 
 	cout << ("***********************************************************************************") << endl;
 }
+
+void option3(vector<post*>& currentPost)
+{
+	cout << ("***********************************************************************************") << endl;
+	cout << "Removing a post: " << endl;
+	string poster;
+	int index;
+	vector<post*>::iterator it;
+	cout << "Enter the poster of the post you want to remove: ";
+	cin >> poster;
+	post* item = findPostByUser(poster, currentPost);
+
+	it = find(currentPost.begin(), currentPost.end(), item);
+
+	if (it != currentPost.end())
+	{
+		index = it - currentPost.begin();
+		currentPost.erase(currentPost.begin() + index);
+	}
+	else
+	{
+		cout << "Element not found." << endl;
+	}
+	cout << ("***********************************************************************************") << endl;
+}
+
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
