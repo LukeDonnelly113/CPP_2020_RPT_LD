@@ -15,6 +15,8 @@
 
 using namespace std;
 
+typedef function<void(vector<post*>&)> funct;
+
 list <post*> findPostByUser(string poster, vector<post*>& currentPost)
 {
 	list <post*> items;
@@ -131,30 +133,30 @@ void option2(vector<post*>& currentPost)
 	cout << ("***********************************************************************************") << endl;
 }
 
-void option3(vector<post*>& currentPost)
-{
-	cout << ("***********************************************************************************") << endl;
-	cout << "Removing a post: " << endl;
-	string poster;
-	int index;
-	vector<post*>::iterator it;
-	cout << "Enter the poster of the post you want to remove: ";
-	cin >> poster;
-	post* item = findPostByUser(poster, currentPost);
-
-	it = find(currentPost.begin(), currentPost.end(), item);
-
-	if (it != currentPost.end())
-	{
-		index = it - currentPost.begin();
-		currentPost.erase(currentPost.begin() + index);
-	}
-	else
-	{
-		cout << "Element not found." << endl;
-	}
-	cout << ("***********************************************************************************") << endl;
-}
+//void option3(vector<post*>& currentPost)
+//{
+//	cout << ("***********************************************************************************") << endl;
+//	cout << "Removing a post: " << endl;
+//	string poster;
+//	int index;
+//	vector<post*>::iterator it;
+//	cout << "Enter the poster of the post you want to remove: ";
+//	cin >> poster;
+//	post* item = findPostByUser(poster, currentPost);
+//
+//	it = find(currentPost.begin(), currentPost.end(), item);
+//
+//	if (it != currentPost.end())
+//	{
+//		index = it - currentPost.begin();
+//		currentPost.erase(currentPost.begin() + index);
+//	}
+//	else
+//	{
+//		cout << "Element not found." << endl;
+//	}
+//	cout << ("***********************************************************************************") << endl;
+//}
 
 //view option
 void option4(vector<post*>& currentPost)
@@ -169,6 +171,43 @@ void option4(vector<post*>& currentPost)
 	cout << ("***********************************************************************************") << endl;
 }
 
+int main()
+{
+	// Create a vector for the current stock:
+	vector<post*> currentStock;
+
+	// The options menu:
+	map<int, funct> options;
+
+	options[1] = option1;
+	options[2] = option2;
+	/*options[3] = option3;*/
+	options[4] = option4;
+	
+
+	int choice = 0;
+
+	do
+	{
+		cout << "Enter 1 to add a new post: " << endl;
+		cout << "Enter 2 to search for a post: " << endl;
+		cout << "Enter 3 to remove a post: " << endl;
+		cout << "Enter 4 to view a post: " << endl;
+		cout << "Enter -1 to exit: " << endl;
+		cin >> choice;
+		cin.ignore(1000, '\n');
+		if (options.find(choice) != options.end())
+		{
+			options[choice](currentStock);
+		}
+
+		else if (choice != -1)
+		{
+			cout << "option not found!" << endl;
+		}
+	} while (choice != -1);
+
+}
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
